@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader';
 const Warning = React.lazy(() => import('./warning'));
 class App extends React.Component {
   state = {
-    count: 0,
+    count: 0
   };
 
   render() {
