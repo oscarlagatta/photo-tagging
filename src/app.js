@@ -9,7 +9,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>This is Jato's React boilerplate.!!!!!!</h1>
+        <h1>This is Jato's React boilerplate.</h1>
         <h2 className={this.state.count > 10 ? 'warning' : null}>
           Count: {this.state.count}
         </h2>
