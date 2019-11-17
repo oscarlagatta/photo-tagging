@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Home from './components/Home/index';
 
 const mapStateToProps = state => ({
-  appName: state.appName
+  appName: state.common.appName
 });
 
 import Header from './components/Header';
