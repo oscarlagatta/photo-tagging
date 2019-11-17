@@ -7,6 +7,7 @@
 
 import _superagent from 'superagent';
 import superagentPromise from 'superagent-promise';
+import { isCompositeComponent } from 'react-dom/test-utils';
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
@@ -20,7 +21,9 @@ const API_ROOT = 'https://conduit.productionready.io/api';
  * For eacth HTTP request we are only concerned with the Response Body
  * so we create a function that takes the response and returns the Body.
  */
-const responseBody = res => res.body;
+const responseBody = res => {    
+    return res.body;
+}
 
 /**
  * Quick wrapper around get requests
@@ -30,7 +33,7 @@ const requests = {
 };
 
 const Articles = {
-    all: page => requetes.get('/articles?limit=10')
+    all: page => requests.get('/articles?limit=10')
 };
 
 export default {
