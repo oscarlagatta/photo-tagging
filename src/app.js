@@ -18,10 +18,15 @@ class App extends React.Component {
       <div>
         <Header appName={this.props.appName} />
         <Home />     
+        {/* {this.props.children} */}
       </div>
     );
   }
 }
+
+// App.contextTypes = {
+//   router: React.PropTypes.object.isRequired
+// };
 // const hotFunction = hot(module);
 // export default hotFunction(App);
 export default connect(mapStateToProps, () => ({}))(App);

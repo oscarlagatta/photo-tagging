@@ -1,8 +1,10 @@
 import React from 'react';
 import ArticlePreview from './ArticlePreview';
+import { isCompositeComponent } from 'react-dom/test-utils';
 
-const ArticleList = ({articles}) => {
-   if(!articles) {
+const ArticleList = ({articles}) => {  
+
+  if(!articles) {
        return (
            <div className="article-preview">Loading...</div>
        );
@@ -21,7 +23,7 @@ const ArticleList = ({articles}) => {
       {       
         articles.map(article => {
           return (
-            <ArticlePreview article={article} />
+            <ArticlePreview article={article} key={article.slug}/>
           );
         })
       }
