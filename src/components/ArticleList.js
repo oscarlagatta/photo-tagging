@@ -1,4 +1,5 @@
 import React from 'react';
+import ArticlePreview from './ArticlePreview';
 
 const ArticleList = ({articles}) => {
    if(!articles) {
@@ -18,9 +19,9 @@ const ArticleList = ({articles}) => {
    return (
     <div>
       {       
-        Array.from(articles).map(article => {
+        articles.map(article => {
           return (
-            <h2>{article.title}</h2>
+            <ArticlePreview article={article} />
           );
         })
       }
