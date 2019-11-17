@@ -1,38 +1,32 @@
 import React from 'react';
-import { hot } from 'react-hot-loader';
+import { connect } from 'react-redux';
+import Home from './components/Home/index';
 
-const Warning = React.lazy(() => import('./warning'));
+const mapStateToProps = state => ({
+  appName: state.common.appName
+});
+
+import Header from './components/Header';
+
+// import { hot } from 'react-hot-loader';
+
+// const Warning = React.lazy(() => import('./warning'));
 class App extends React.Component {
-  state = {
-    count: 0
-  };
-
+  
   render() {
     return (
       <div>
-        <h1>This is Jato's React boilerplate.</h1>
-        <h2 className={this.state.count > 10 ? 'warning' : null}>
-          Count: {this.state.count}
-        </h2>
-        <button
-          onClick={() => this.setState(state => ({ count: state.count + 1 }))}
-        >
-          +
-        </button>
-        <button
-          onClick={() => this.setState(state => ({ count: state.count - 1 }))}
-        >
-          -
-        </button>
-
-        {this.state.count > 10 ? (
-          <React.Suspense fallback={null}>
-            <Warning />
-          </React.Suspense>
-        ) : null}
+        <Header appName={this.props.appName} />
+        <Home />     
+        {/* {this.props.children} */}
       </div>
     );
   }
 }
-const hotFunction = hot(module);
-export default hotFunction(App);
+
+// App.contextTypes = {
+//   router: React.PropTypes.object.isRequired
+// };
+// const hotFunction = hot(module);
+// export default hotFunction(App);
+export default connect(mapStateToProps, () => ({}))(App);
